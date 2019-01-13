@@ -1,0 +1,28 @@
+{
+  "name": "my-website-revamp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1",
+    "merge-stream": "^1.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-serve": "^1.4.0",
+    "jshint": "^2.9.7",
+    "jshint-stylish": "^2.2.1"
+  },
+  "description": ""
+}
