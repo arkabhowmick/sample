@@ -13,7 +13,7 @@ sass.compiler = require('node-sass');
 
 // start server
 gulp.task('serve', serve({
-    root: ['dist'],
+    root: ['docs'],
     port: 4000
 }));
 
@@ -29,13 +29,13 @@ gulp.task('sass', function () {
             cascade: false
         }))
         .pipe(cleanCSS({compatibility: 'ie8'}))
-        .pipe(gulp.dest('dist/css'));
+        .pipe(gulp.dest('docs/css'));
 });
  
 //copy html
 gulp.task('html', function() {
     return gulp.src('src/*.html')
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('docs'));
 });
 
 //scripts
@@ -47,12 +47,14 @@ gulp.task('scripts', function() {
         .pipe(concat('main.js'))    //concat all js files
         .pipe(sourcemaps.write()) // Add the map to modified source.
         .pipe(uglify())             //minify the js files
-        .pipe(gulp.dest('dist/js'));//destination folder
+        .pipe(gulp.dest('docs/js'));//destination folder
 });
+
+
 
 gulp.task('watch', () => {
     gulp.watch('src/js/*.js', gulp.series('scripts'));     //js hint , concat and minify all js into main.js 
-    gulp.watch('src/*.html', gulp.series('html'));         //copy html to dist
+    gulp.watch('src/*.html', gulp.series('html'));         //copy html to docs
     gulp.watch('src/sass/**/*.scss', gulp.series('sass'));   // sass to css
 });
 
