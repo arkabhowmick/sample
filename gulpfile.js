@@ -8,11 +8,13 @@ const concat = require('gulp-concat');
 const cleanCSS = require('gulp-clean-css');
 const jshint = require('gulp-jshint');
 const serve = require('gulp-serve');
+const htmlmin = require('gulp-htmlmin');
 
 sass.compiler = require('node-sass');
 
 // start server
 gulp.task('serve', serve({
+    host: '0.0.0.0',
     root: ['docs'],
     port: 4000
 }));
@@ -35,7 +37,22 @@ gulp.task('sass', function () {
 //copy html
 gulp.task('html', function() {
     return gulp.src('src/*.html')
+        .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest('docs'));
+});
+
+//copy images 
+gulp.task('images', () => {
+    return gulp.src('src/img/*.png')
+        .pipe(gulp.dest('docs/img'));
+});
+
+//copy svg 
+gulp.task('svg', () => {
+    return gulp.src('src/img/*.svg')
+        .pipe(uglify())
+        .pipe(htmlmin({ collapseWhitespace: true }))
+        .pipe(gulp.dest('docs/img'));
 });
 
 //scripts
@@ -56,6 +73,8 @@ gulp.task('watch', () => {
     gulp.watch('src/js/*.js', gulp.series('scripts'));     //js hint , concat and minify all js into main.js 
     gulp.watch('src/*.html', gulp.series('html'));         //copy html to docs
     gulp.watch('src/sass/**/*.scss', gulp.series('sass'));   // sass to css
+    gulp.watch('src/img/*.png', gulp.series('images'));
+    gulp.watch('src/img/*.svg', gulp.series('svg'));
 });
 
 // define the default task and add the watch task to it
