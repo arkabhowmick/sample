@@ -13,13 +13,16 @@
     "gulp-clean-css": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-htmlmin": "^5.0.1",
+    "gulp-minify-inline": "^1.1.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.4",
+    "gulp-svgmin": "^2.1.0",
     "gulp-uglify": "^3.0.1",
     "merge-stream": "^1.0.1"
   },
   "devDependencies": {
     "gulp": "^4.0.0",
+    "gulp-inline-css": "^3.3.1",
     "gulp-jshint": "^2.1.0",
     "gulp-serve": "^1.4.0",
     "jshint": "^2.9.7",

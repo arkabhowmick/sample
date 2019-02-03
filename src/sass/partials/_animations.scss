@@ -1,0 +1,36 @@
+.speech-bubble-animation {
+    // animation: speech-bubble-animation linear 2s;
+    animation: speech-bubble-animation ease-in-out 0.5s;
+}
+
+@keyframes speech-bubble-animation {
+    0% { transform : translate(0px, 0px)}
+    50% { transform: translate(0px, -20px)}
+    100% { transform: translate(0px, 0px)}
+}
+
+.home-speech-bubble-text-1 {
+    animation-timing-function: ease-in-out;
+    animation: home-speech-bubble-text-1 6s infinite;
+}
+
+@keyframes home-speech-bubble-text-1 {
+    0% { opacity : 0 }
+    5% { opacity : 1 }
+    45% { opacity : 1 }
+    51% { opacity : 0 }
+    100% { opacity : 0 }
+}
+
+.home-speech-bubble-text-2 {
+    animation-timing-function: ease-in-out;
+    animation: home-speech-bubble-text-2 6s infinite;
+}
+
+@keyframes home-speech-bubble-text-2 {
+    0% { opacity : 0 }
+    50% { opacity : 0 }
+    55% { opacity : 1 }
+    95% { opacity : 1 }
+    100% { opacity : 0 }
+}

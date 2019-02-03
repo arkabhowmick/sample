@@ -9,6 +9,9 @@ const cleanCSS = require('gulp-clean-css');
 const jshint = require('gulp-jshint');
 const serve = require('gulp-serve');
 const htmlmin = require('gulp-htmlmin');
+var svgmin = require('gulp-svgmin');
+var minifyInline = require('gulp-minify-inline');
+const inlineCss = require('gulp-inline-css');
 
 sass.compiler = require('node-sass');
 
@@ -21,10 +24,22 @@ gulp.task('serve', serve({
 
 //Sass to Css
 gulp.task('sass', function () {
-    return gulp.src('src/sass/**/*.scss')
+    return gulp.src('src/sass/*.scss')
         .pipe(sourcemaps.init())  // Process the original sources
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write()) // Add the map to modified source.
+        .pipe(gulp.dest('src/css'));
+        // .pipe(concat('main.css'))
+        // .pipe(autoprefixer({
+        //     browsers: ['last 2 versions'],
+        //     cascade: false
+        // }))
+        // .pipe(cleanCSS({compatibility: 'ie8'}))
+        // .pipe(gulp.dest('docs/css'));
+});
+
+gulp.task('css', () => {
+    return gulp.src('src/css/*.css')
         .pipe(concat('main.css'))
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
@@ -38,6 +53,7 @@ gulp.task('sass', function () {
 gulp.task('html', function() {
     return gulp.src('src/*.html')
         .pipe(htmlmin({ collapseWhitespace: true }))
+        .pipe(minifyInline())
         .pipe(gulp.dest('docs'));
 });
 
@@ -50,8 +66,11 @@ gulp.task('images', () => {
 //copy svg 
 gulp.task('svg', () => {
     return gulp.src('src/img/*.svg')
-        .pipe(uglify())
+        // .pipe(svgmin())
+        // .pipe(uglify())
         .pipe(htmlmin({ collapseWhitespace: true }))
+        // .pipe(minifyInline())
+        // .pipe(inlineCss())
         .pipe(gulp.dest('docs/img'));
 });
 
@@ -75,6 +94,7 @@ gulp.task('watch', () => {
     gulp.watch('src/sass/**/*.scss', gulp.series('sass'));   // sass to css
     gulp.watch('src/img/*.png', gulp.series('images'));
     gulp.watch('src/img/*.svg', gulp.series('svg'));
+    gulp.watch('src/css/*.css', gulp.series('css'));
 });
 
 // define the default task and add the watch task to it

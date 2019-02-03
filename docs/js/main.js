@@ -1,1 +1,1 @@
-console.log("File1"),console.log("File 3"),console.log("file2"),console.log("file4");
+$(document).ready(function(){var e=!0;$("#home").find(".speech-bubble-container").on("click",function(){e&&(e=!1,$("#home").find(".speech-bubble").addClass("speech-bubble-animation"),setTimeout(function(){e=!0,$("#home").find(".speech-bubble").removeClass("speech-bubble-animation")},1e3))})});

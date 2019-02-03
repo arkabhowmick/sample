@@ -10,8 +10,6 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="224.22612mm"
-   height="235.53052mm"
    viewBox="0 0 224.22612 235.53052"
    version="1.1"
    id="svg8"
@@ -1086,29 +1084,34 @@
         75% { -webkit-transform: rotate(20deg); transform: rotate(20deg); }
         100% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
     }
-    .shirt:hover {
+    svg:hover {
         cursor:pointer;
     }
   </style>
   <script
      type="text/javascript"
      id="script125">
-    var shirt = document.getElementsByClassName('shirt');
-    shirt[0].onclick = function() {
-        var oldone = document.getElementsByClassName('head')[0];
-        var newone = oldone.cloneNode(true);
-        oldone.parentNode.replaceChild(newone, oldone);
-        newone.classList.add('head-animation');
+    var svg = document.getElementsByTagName('svg');
+    var flag = true;
+    svg[0].onclick = function() {
+        if(flag) {
+            flag = false;
+            setTimeout(function(){flag=true;}, 7000);
+            var oldone = document.getElementsByClassName('head')[0];
+            var newone = oldone.cloneNode(true); 
+            oldone.parentNode.replaceChild(newone, oldone);
+            newone.classList.add('head-animation');
 
-        oldone = document.getElementsByClassName('rightarm')[0];
-        var newone = oldone.cloneNode(true);
-        oldone.parentNode.replaceChild(newone, oldone);
-        newone.classList.add('rightarm-animation');
+            oldone = document.getElementsByClassName('rightarm')[0];
+            var newone = oldone.cloneNode(true);
+            oldone.parentNode.replaceChild(newone, oldone);
+            newone.classList.add('rightarm-animation');
 
-        oldone = document.getElementsByClassName('rightarmtop')[0];
-        var newone = oldone.cloneNode(true);
-        oldone.parentNode.replaceChild(newone, oldone);
-        newone.classList.add('rightarmtop-animation');
+            oldone = document.getElementsByClassName('rightarmtop')[0];
+            var newone = oldone.cloneNode(true);
+            oldone.parentNode.replaceChild(newone, oldone);
+            newone.classList.add('rightarmtop-animation');
+        }
         <!-- document.getElementsByClassName('head')[0].classList.add('head-animation'); -->
 <!-- document.getElementsByClassName('rightarm')[0].classList.add('rightarm-animation');
         document.getElementsByClassName('rightarmtop')[0].classList.add('rightarmtop-animation'); -->
