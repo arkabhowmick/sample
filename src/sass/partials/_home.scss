@@ -1,20 +1,33 @@
 #home {
+    background : linear-gradient(90deg, #3a47d5 -71%, #00d2ff 49%, #3a47d5 220%);
+    user-select: none;
     .content-home {
         width:100%;
-        background : linear-gradient(90deg, #3a47d5 -71%, #00d2ff 49%, #3a47d5 220%);
         .speech-text {
-            top: 0px;
-            left : 7%; 
-            right : 0px;
-            bottom : 0px;
-            width : 84%;
-            margin : auto;
-            height : 60%;
-            font-size : 2.7vw;
+            top: 30px;
+            left: 0;
+            /* right: 0; */
+            bottom: 0;
+            width: 84%;
+            /* margin: auto; */
+            height: 60%;
+            font-size: 1.7vw;
             text-align: center;
         } 
-        #character-home {
-            float: right;
+        .character-container {
+            width: 50%;
+            position: relative;
+            @media only screen and(max-width: 768px) {
+                width: 100%;
+            }
+            #character-home {
+                position: absolute;
+                bottom:0px;
+            }
+            .speech-bubble-container {
+                position: absolute;
+                top:50px;
+            }
         }
         &:hover {
             cursor:pointer;
