@@ -307,30 +307,9 @@
             oldone.parentNode.replaceChild(newone, oldone);
             newone.classList.add('rightarmtop-animation');
         }
-    };
-    setInterval(function() {
-            if(flag) {
-                flag = false;
-                setTimeout(function(){flag=true;}, 7000);
-                var oldone = document.getElementsByClassName('head')[0];
-                var newone = oldone.cloneNode(true); 
-                oldone.parentNode.replaceChild(newone, oldone);
-                newone.classList.add('head-animation');
-
-                oldone = document.getElementsByClassName('rightarm')[0];
-                var newone = oldone.cloneNode(true);
-                oldone.parentNode.replaceChild(newone, oldone);
-                newone.classList.add('rightarm-animation');
-
-                oldone = document.getElementsByClassName('rightarmtop')[0];
-                var newone = oldone.cloneNode(true);
-                oldone.parentNode.replaceChild(newone, oldone);
-                newone.classList.add('rightarmtop-animation');
-            }
-    }, 15000);
-        
         <!-- document.getElementsByClassName('head')[0].classList.add('head-animation'); -->
 <!-- document.getElementsByClassName('rightarm')[0].classList.add('rightarm-animation');
         document.getElementsByClassName('rightarmtop')[0].classList.add('rightarmtop-animation'); -->
 <!-- console.log('Hi'); -->
-</script></svg>
+
+    };</script></svg>
